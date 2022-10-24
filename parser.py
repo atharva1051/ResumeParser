@@ -41,8 +41,8 @@ if __name__ == '__main__':
     phone_number = extract_phone_number(text)
     
     if names:
-        print(names[0])  # noqa: T001           # Name is extracted here
+        print(names[0])  # noqa: T001           # Name is extracted here // add to dictionary later
 
     if phone_number :
-        print(phone_number[0])                  # Phone number is extracted here
+        print(phone_number[0])                  # Phone number is extracted here    // add to dictionary later
     
