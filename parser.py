@@ -16,6 +16,13 @@ SKILLS_DB = [
     'word',
     'excel',
     'English',
+    'nlp',
+    'html',
+    'css',
+    'java',
+    'c++',
+    'git',
+    'software engineering'
 ]
 
 PHONE_REG = re.compile(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]')
