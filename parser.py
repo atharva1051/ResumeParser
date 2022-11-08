@@ -27,7 +27,7 @@ SKILLS_DB = [
 
 PHONE_REG = re.compile(r'[\+\(]?[1-9][0-9 .\-\(\)]{8,}[0-9]')
 EMAIL_REG = re.compile(r'[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+')
-GPA_REG = re.compile(r'^[0-9]*[.,]{0,1}[0-9]*$')
+GPA_REG = re.compile(r'/^[0-9](\.[0-9]{1,2})?$|^4(\.[0]{1,2})?$/g')
  
 def extract_text_from_docx(docx_path):
     txt = docx2txt.process(docx_path)
@@ -86,8 +86,13 @@ def extract_skills(input_text):
     return found_skills
 
 def extract_gpa(resume_text):
-    return re.findall(GPA_REG,resume_text)  ## ERROR IN THIS LINE
- 
+    xgpa =  re.findall(GPA_REG,resume_text)  ## ERROR IN THIS LINE
+    if xgpa:
+        return xgpa
+    else: 
+        xgpa = 'NA'
+        return xgpa
+
 if __name__ == '__main__':
     text = extract_text_from_docx('demo.docx')
     names = extract_names(text)
@@ -110,3 +115,4 @@ if __name__ == '__main__':
 
     if gpa :
         print(gpa)
+        
